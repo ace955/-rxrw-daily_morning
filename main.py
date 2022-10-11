@@ -34,19 +34,19 @@ def get_tea_day_count():
   next = datetime.strptime(str(date.today().year) + "-" + ruixin_date, "%Y-%m-%d")
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
-  return (next - today).days
+  return (next - today).days+1
 
 def get_zaocha_day_count():
   next = datetime.strptime(str(date.today().year) + "-" + zaocha_data, "%Y-%m-%d")
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
-  return (next - today).days
+  return (next - today).days+1
 
 def get_birthday():
   next = datetime.strptime(str(date.today().year) + "-" + birthday, "%Y-%m-%d")
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
-  return (next - today).days
+  return (next - today).days+1
 
 def get_words():
   words = requests.get("https://api.shadiao.pro/chp")
