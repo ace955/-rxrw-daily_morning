@@ -62,12 +62,12 @@ def get_random_color():
 client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
-wea, temperature = get_weather()
+
 word = get_words()
 color = get_random_color()
-data = {"weather":{"value":wea},"ruixin_date":{"value":get_tea_day_count()},"zaocha_data":{"value":get_zaocha_day_count()},"temperature":{"value":temperature},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"words":{"value":word, "color":color}}
+data = {"ruixin_date":{"value":get_tea_day_count()},"zaocha_data":{"value":get_zaocha_day_count()},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"words":{"value":word, "color":color}}
 res = wm.send_template(user_id, template_id, data)
-data2 = {"weather":{"value":wea},"ruixin_date":{"value":get_tea_day_count()},"zaocha_data":{"value":get_zaocha_day_count()},"temperature":{"value":temperature},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"words":{"value":word, "color":color}}
+data2 = {"ruixin_date":{"value":get_tea_day_count()},"zaocha_data":{"value":get_zaocha_day_count()},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"words":{"value":word, "color":color}}
 res2 = wm.send_template(user_id2, template_id, data2)
 print(res)
 
