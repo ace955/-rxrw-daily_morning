@@ -67,8 +67,8 @@ word = get_words()
 color = get_random_color()
 # data = {"ruixin_date":{"value":get_tea_day_count()},"zaocha_data":{"value":get_zaocha_day_count()},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"words":{"value":word, "color":color}}
 # res = wm.send_template(user_id, template_id, data)
-data2 = {"ruixin_date":{"value":get_tea_day_count()},"zaocha_data":{"value":get_zaocha_day_count()},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"words":{"value":word}}
+data2 = {"ruixin_date":{"value":get_tea_day_count()},"zaocha_data":{"value":get_zaocha_day_count()},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"words":{"value":word, "color":color}}
 res2 = wm.send_template(user_id2, template_id, data2)
-print(word)
+print(res)
 
 print(res2)
