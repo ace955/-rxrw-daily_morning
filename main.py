@@ -35,19 +35,19 @@ def get_tea_day_count():
   next = datetime.strptime(str(date.today().year) + "-" + ruixin_date, "%Y-%m-%d")
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
-  return (next - today).days+1
+  return ruixin_date
 
 def get_zaocha_day_count():
   next = datetime.strptime(str(date.today().year) + "-" + zaocha_data, "%Y-%m-%d")
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
-  return (next - today).days+1
+  return zaocha_data
 
 def get_birthday():
   next = datetime.strptime(str(date.today().year) + "-" + birthday, "%Y-%m-%d")
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
-  return (next - today).days+1
+  return birthday
 
 def get_words():
   words = requests.get("https://api.shadiao.pro/chp")
@@ -67,6 +67,7 @@ word = get_words()
 color = get_random_color()
 data = {"ruixin_date":{"value":get_tea_day_count()},"zaocha_data":{"value":get_zaocha_day_count()},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"words":{"value":word, "color":color}}
 res = wm.send_template(user_id, template_id, data)
+
 data2 = {"ruixin_date":{"value":get_tea_day_count()},"zaocha_data":{"value":get_zaocha_day_count()},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"words":{"value":word, "color":color}}
 res2 = wm.send_template(user_id2, template_id, data2)
 print(res)
